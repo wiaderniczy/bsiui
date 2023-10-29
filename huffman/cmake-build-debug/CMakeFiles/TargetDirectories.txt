@@ -1,0 +1,3 @@
+F:/STUDIA/PROGRAMOWANIE/C++/huffman/cmake-build-debug/CMakeFiles/huffman.dir
+F:/STUDIA/PROGRAMOWANIE/C++/huffman/cmake-build-debug/CMakeFiles/edit_cache.dir
+F:/STUDIA/PROGRAMOWANIE/C++/huffman/cmake-build-debug/CMakeFiles/rebuild_cache.dir
