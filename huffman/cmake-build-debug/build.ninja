@@ -49,9 +49,9 @@ cmake_ninja_workdir = F$:/STUDIA/PROGRAMOWANIE/C++/bsiui/huffman/cmake-build-deb
 
 build cmake_object_order_depends_target_huffman: phony || CMakeFiles/huffman.dir
 
-build CMakeFiles/huffman.dir/main.cpp.obj: CXX_COMPILER__huffman_Debug F$:/STUDIA/PROGRAMOWANIE/C++/bsiui/huffman/main.cpp || cmake_object_order_depends_target_huffman
+build CMakeFiles/huffman.dir/main.cpp.obj: CXX_COMPILER__huffman_Debug F$:/STUDIA/PROGRAMOWANIE/C++/bsiui/huffman/cmake-build-debug/main.cpp || cmake_object_order_depends_target_huffman
   DEP_FILE = CMakeFiles\huffman.dir\main.cpp.obj.d
-  FLAGS = -g -std=gnu++20
+  FLAGS = -g -std=gnu++14
   OBJECT_DIR = CMakeFiles\huffman.dir
   OBJECT_FILE_DIR = CMakeFiles\huffman.dir
   TARGET_COMPILE_PDB = CMakeFiles\huffman.dir\

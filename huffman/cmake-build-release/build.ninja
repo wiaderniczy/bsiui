@@ -49,11 +49,11 @@ cmake_ninja_workdir = F$:/STUDIA/PROGRAMOWANIE/C++/bsiui/huffman/cmake-build-rel
 
 build cmake_object_order_depends_target_huffman: phony || CMakeFiles/huffman.dir
 
-build CMakeFiles/huffman.dir/main.cpp.obj: CXX_COMPILER__huffman_Release F$:/STUDIA/PROGRAMOWANIE/C++/bsiui/huffman/main.cpp || cmake_object_order_depends_target_huffman
-  DEP_FILE = CMakeFiles\huffman.dir\main.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++20
+build CMakeFiles/huffman.dir/cmake-build-debug/main.cpp.obj: CXX_COMPILER__huffman_Release F$:/STUDIA/PROGRAMOWANIE/C++/bsiui/huffman/cmake-build-debug/main.cpp || cmake_object_order_depends_target_huffman
+  DEP_FILE = CMakeFiles\huffman.dir\cmake-build-debug\main.cpp.obj.d
+  FLAGS = -O3 -DNDEBUG -std=gnu++14
   OBJECT_DIR = CMakeFiles\huffman.dir
-  OBJECT_FILE_DIR = CMakeFiles\huffman.dir
+  OBJECT_FILE_DIR = CMakeFiles\huffman.dir\cmake-build-debug
   TARGET_COMPILE_PDB = CMakeFiles\huffman.dir\
   TARGET_PDB = huffman.pdb
 
@@ -65,7 +65,7 @@ build CMakeFiles/huffman.dir/main.cpp.obj: CXX_COMPILER__huffman_Release F$:/STU
 #############################################
 # Link the executable huffman.exe
 
-build huffman.exe: CXX_EXECUTABLE_LINKER__huffman_Release CMakeFiles/huffman.dir/main.cpp.obj
+build huffman.exe: CXX_EXECUTABLE_LINKER__huffman_Release CMakeFiles/huffman.dir/cmake-build-debug/main.cpp.obj
   FLAGS = -O3 -DNDEBUG
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\huffman.dir
