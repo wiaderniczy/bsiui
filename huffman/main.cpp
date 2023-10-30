@@ -41,25 +41,25 @@ void encode(const std::string text){
     if (textBitSize % 8 != 0) {
         finalBitSize = textBitSize + (8 - (textBitSize % 8));
         addition = finalBitSize - textBitSize;
-        additionSize = ceil(log2(addition + 1));
+    }
+
+    std::string additionFirstBits = "";
+    for (auto i = 0; i < addition; i++ ){
+        additionFirstBits += "1";
     }
 
     std::bitset<8> additionRep(addition);
-    std::string encodedString = additionRep.to_string().substr(8 - additionSize);
+    std::string encodedString = additionFirstBits;
     for (auto i = 0; i < text.size(); i++){
         std::bitset<32> rep(alphabet.at(text[i]));
         encodedString += rep.to_string().substr(32 - N);
     }
-    std::string additionLastBits = "";
-    for (auto i = 0; i < addition - additionSize; i++ ){
-        additionLastBits += "0";
-    }
-    encodedString += additionLastBits;
+
 
     int outputSize = iterator + 1 + finalBitSize/8;
     char output[outputSize] = {};
     output[0] = iterator;
-    for (auto i = 0; i < sortedVector.size(); i++) {
+    for (int i = 0; i < sortedVector.size(); i++) {
         output[i+1] = sortedVector.at(i).first;
     }
     int guard = encodedString.length()/8;
@@ -68,25 +68,74 @@ void encode(const std::string text){
         encodedString.erase(0,8);
     }
     std::ofstream out;
-    out.open("encoded", std::ios::app);
+    out.open("encoded", std::ios::trunc);
     for (char x: output){
         out << x;
     }
-    std::cout << output[0];
     out.close();
-
 }
 
-void decode(std::string * filename){
+void decode(std::string text){
+    int alphabetLength = (int)text[0];
 
+    std::map<int, char> alphabet = {};
+    for (int i = 0; i < alphabetLength; i++) {
+        alphabet[i] = text[1+i];
+    }
+    text.erase(0, alphabetLength + 1);
+
+    int N = ceil(log2(alphabetLength));
+
+    std::vector<bool> bits;
+
+    for (char c : text) {
+        std::bitset<8> charBits(c);
+        for (int i = 7; i >= 0; --i) {
+            bits.push_back(charBits[i]);
+        }
+    }
+
+    auto onesEnd = bits.begin();
+    while (onesEnd != bits.end() && *onesEnd) {
+        ++onesEnd;
+    }
+    bits.erase(bits.begin(), onesEnd);
+
+    std::string decodedString = "";
+
+    for (bool bit: bits){
+        decodedString += (bit ? '1' : '0');
+    }
+    std::string final = "";
+    for (int i = 0; i < decodedString.size(); i+=N){
+        std::string chunk = decodedString.substr(i, N);
+        int value = std::stoi(chunk, nullptr,  2);
+        final += std::string(1, alphabet.at(value));
+    }
+    std::cout<<final;
+
+    std::ofstream out;
+    out.open("decoded.txt", std::ios::trunc);
+    out << final;
+    out.close();
 }
 
 int main() {
-    std::string file;
-    std::string text;
+    std::string file, text;
+    int option;
     std::cout << "File location:\n";
     std::cin >> file;
+    std::cout << "1.Decode \n2.Encode\n";
+    std::cin >> option;
     text = readFromFile(&file);
-    encode(text);
+
+    switch(option) {
+        case 1:
+            decode(text);
+            break;
+        case 2:
+            encode(text);
+            break;
+    }
     return 0;
 }
