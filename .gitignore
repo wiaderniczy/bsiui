@@ -1,1 +1,6 @@
 *
+!huffman
+!huffman/main.cpp
+!huffman/cmake-build-debug
+!huffman/cmake-build-debug/*
+!.gitignore
