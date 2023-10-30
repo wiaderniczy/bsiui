@@ -4,6 +4,7 @@
 #include <cmath>
 #include <vector>
 #include <bitset>
+#include <algorithm>
 
 std::string readFromFile(std::string * filename){
     std::ifstream file;
@@ -67,7 +68,7 @@ void encode(const std::string text){
         encodedString.erase(0,8);
     }
     std::ofstream out;
-    out.open("encoded.txt", std::ios::app);
+    out.open("encoded", std::ios::app);
     for (char x: output){
         out << x;
     }
