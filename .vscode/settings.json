@@ -1,4 +1,0 @@
-{
-    "cmake.configureOnOpen": true,
-    "C_Cpp.default.compilerPath": "c:\\msys64\\ucrt64\\bin\\g++.exe"
-}
